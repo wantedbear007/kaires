@@ -4,24 +4,23 @@ pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+use candid::{CandidType, Nat, Principal};
+use serde::{Deserialize, Serialize};
+use ic_cdk::api::call::{CallResult, RejectionCode};
+use serde_bytes::{self, ByteBuf};
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+
+#[derive(Clone, CandidType, Serialize, Deserialize)]
+pub struct ImageData {
+    pub content: ByteBuf,
+    pub name: String,
+    pub content_type: String,
+    pub asset_canister: Principal
 }
 
 
 
 
-use candid::{CandidType, Principal};
-use ic_cdk::api::call::{CallResult, RejectionCode};
-use serde::Serialize;
-use types::ImageData;
 
 // inter canister call
 pub async fn call_inter_canister<T, U>(
