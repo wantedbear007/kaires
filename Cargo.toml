@@ -1,0 +1,9 @@
+[package]
+name = "kaires"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+candid = "0.10.6"
+ic-cdk = "0.13.2"
+serde = { version = "1.0.160", features = ["derive"] }
