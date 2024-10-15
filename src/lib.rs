@@ -102,3 +102,10 @@ pub async fn upload_image_to_asset_canister(image_data: ImageData) -> Result<Str
 
     formatted_value
 }
+
+
+pub fn get_random_number(from: u64, to: u64) -> u64 {
+    let current_time = ic_cdk::api::time();  
+    let range = to - from + 1;
+    from + (current_time % range)
+}
