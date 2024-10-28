@@ -1,4 +1,6 @@
 mod types;
+pub mod canister_management;
+mod canister_mgmt_types;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
@@ -109,3 +111,4 @@ pub fn get_random_number(from: u64, to: u64) -> u64 {
     let range = to - from + 1;
     from + (current_time % range)
 }
+
