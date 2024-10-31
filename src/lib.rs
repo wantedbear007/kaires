@@ -1,6 +1,6 @@
-mod types;
+pub mod types;
 pub mod canister_management;
-mod canister_mgmt_types;
+pub mod canister_mgmt_types;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
