@@ -1,28 +1,24 @@
-pub mod types;
 pub mod canister_management;
 pub mod canister_mgmt_types;
+pub mod types;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
 use candid::{CandidType, Nat, Principal};
-use serde::{Deserialize, Serialize};
 use ic_cdk::api::call::{CallResult, RejectionCode};
+use rand::seq::SliceRandom;
+use serde::{Deserialize, Serialize};
 use serde_bytes::{self, ByteBuf};
-
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
 pub struct ImageData {
     pub content: ByteBuf,
     pub name: String,
     pub content_type: String,
-    pub asset_canister: Principal
+    pub asset_canister: Principal,
 }
-
-
-
-
 
 // inter canister call
 pub async fn call_inter_canister<T, U>(
@@ -52,7 +48,6 @@ where
         },
     }
 }
-
 
 type ReturnResult = Result<u32, String>;
 
@@ -105,10 +100,14 @@ pub async fn upload_image_to_asset_canister(image_data: ImageData) -> Result<Str
     formatted_value
 }
 
-
 pub fn get_random_number(from: u64, to: u64) -> u64 {
-    let current_time = ic_cdk::api::time();  
+    let current_time = ic_cdk::api::time();
     let range = to - from + 1;
     from + (current_time % range)
 }
 
+// to suffle list
+pub fn suffle_list<T>(list: &mut Vec<T>) {
+    let mut rng = rand::thread_rng();
+    list.shuffle(&mut rng);
+}
