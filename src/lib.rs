@@ -106,8 +106,8 @@ pub fn get_random_number(from: u64, to: u64) -> u64 {
     from + (current_time % range)
 }
 
-// to suffle list
-pub fn suffle_list<T>(list: &mut Vec<T>) {
-    let mut rng = rand::thread_rng();
-    list.shuffle(&mut rng);
-}
+// // to suffle list
+// pub fn suffle_list<T>(list: &mut Vec<T>) {
+//     let mut rng = rand::thread_rng();
+//     list.shuffle(&mut rng);
+// }
