@@ -10,3 +10,5 @@ pub struct ImageData {
     pub content_type: String,
     pub asset_canister: Principal
 }
+
+
