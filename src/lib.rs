@@ -1,6 +1,7 @@
 pub mod canister_management;
 pub mod canister_mgmt_types;
 pub mod types;
+pub mod canister_mgmt;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
@@ -8,7 +9,6 @@ pub fn add(left: u64, right: u64) -> u64 {
 
 use candid::{CandidType, Nat, Principal};
 use ic_cdk::api::call::{CallResult, RejectionCode};
-use rand::seq::SliceRandom;
 use serde::{Deserialize, Serialize};
 use serde_bytes::{self, ByteBuf};
 
