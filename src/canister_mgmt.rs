@@ -10,7 +10,6 @@ pub async fn create_users_canister(
     encoded_args: Vec<u8>,
     controllers: Vec<Principal>,
     cycles: u128,
-    reserved_cycles: Nat,
 ) -> Principal {
     let arg = CreateCanisterArgument {
         settings: Some(CanisterSettings {
@@ -18,7 +17,6 @@ pub async fn create_users_canister(
             compute_allocation: None,
             memory_allocation: None,
             freezing_threshold: None,
-            reserved_cycles_limit: Some(reserved_cycles),
             ..Default::default()
         }),
     };
