@@ -56,14 +56,14 @@ pub async fn create_users_canister( wasm: &[u8], args: Vec<u8>, controll: Princi
   //     .expect("Failed to serialize the install argument.");
 
   // * install wasm to provisioned canister
-  main::install_code(InstallCodeArgument {
-      mode: CanisterInstallMode::Install,
-      canister_id,
-      wasm_module: wasm.into(),
-      arg: args,
-  })
-  .await
-  .unwrap();
+  // main::install_code(InstallCodeArgument {
+  //     mode: CanisterInstallMode::Install,
+  //     canister_id,
+  //     wasm_module: wasm.into(),
+  //     arg: args,
+  // })
+  // .await
+  // .unwrap();
 
   canister_id
 }
