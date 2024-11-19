@@ -16,12 +16,13 @@ pub const INDIVIDUAL_USER_CANISTER_RECHARGE_AMOUNT: u128 = 1_000_000_000_000; //
 //   "../../../../../target/wasm32-unknown-unknown/release/individual_user_template.wasm.gz"
 // );
 
-pub async fn create_users_canister( wasm: &[u8], args: Vec<u8>) -> Principal {
+pub async fn create_users_canister( wasm: &[u8], args: Vec<u8>, controll: Principal) -> Principal {
   // * config for provisioning canister
   let arg = CreateCanisterArgument {
       settings: Some(CanisterSettings {
           controllers: Some(vec![
               // * this user_index canister
+              controll,
               api::id(),
           ]),
           compute_allocation: None,
